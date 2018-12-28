@@ -12,6 +12,8 @@ install:
   - source /opt/qt*/bin/qt*-env.sh
 
 script:
-  - qmake CONFIG+=release PREFIX=/usr
+  - mkdir build
+  - cd build
+  - qmake .. CONFIG+=release PREFIX=/usr
   - make -j$(nproc)
   - sudo make install
